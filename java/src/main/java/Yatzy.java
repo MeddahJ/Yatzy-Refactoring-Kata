@@ -54,13 +54,13 @@ public class Yatzy {
 
     protected int[] dice;
 
-    public Yatzy(int d1, int d2, int d3, int d4, int _5) {
+    public Yatzy(int d1, int d2, int d3, int d4, int d5) {
         dice = new int[5];
         dice[0] = d1;
         dice[1] = d2;
         dice[2] = d3;
         dice[3] = d4;
-        dice[4] = _5;
+        dice[4] = d5;
     }/**/
 
     public int fours() {
@@ -125,11 +125,11 @@ public class Yatzy {
             return 0;
     }
 
-    public static int fourOfAKind(int _1, int _2, int d3, int d4, int d5) {
+    public static int fourOfAKind(int d1, int d2, int d3, int d4, int d5) {
         int[] tallies;
         tallies = new int[6];
-        tallies[_1 - 1]++;
-        tallies[_2 - 1]++;
+        tallies[d1 - 1]++;
+        tallies[d2 - 1]++;
         tallies[d3 - 1]++;
         tallies[d4 - 1]++;
         tallies[d5 - 1]++;
