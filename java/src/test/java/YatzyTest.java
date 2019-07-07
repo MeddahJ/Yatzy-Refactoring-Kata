@@ -6,35 +6,35 @@ public class YatzyTest {
 
     @Test
     public void chance_scores_sum_of_all_dice() {
-        assertThat(Yatzy.chance(2, 3, 4, 5, 1)).isEqualTo(15);
-        assertThat(Yatzy.chance(3, 3, 4, 5, 1)).isEqualTo(16);
+        assertThat(new Yatzy(2, 3, 4, 5, 1).chance()).isEqualTo(15);
+        assertThat(new Yatzy(3, 3, 4, 5, 1).chance()).isEqualTo(16);
     }
 
     @Test
     public void yatzy_scores_50() {
-        assertThat(Yatzy.yatzy(4, 4, 4, 4, 4)).isEqualTo(50);
-        assertThat(Yatzy.yatzy(6, 6, 6, 6, 6)).isEqualTo(50);
-        assertThat(Yatzy.yatzy(6, 6, 6, 6, 3)).isEqualTo(0);
+        assertThat(new Yatzy(4, 4, 4, 4, 4).yatzy()).isEqualTo(50);
+        assertThat(new Yatzy(6, 6, 6, 6, 6).yatzy()).isEqualTo(50);
+        assertThat(new Yatzy(6, 6, 6, 6, 3).yatzy()).isEqualTo(0);
     }
 
     @Test
     public void test_1s() {
-        assertThat(Yatzy.ones(1, 2, 3, 4, 5)).isEqualTo(1);
-        assertThat(Yatzy.ones(1, 2, 1, 4, 5)).isEqualTo(2);
-        assertThat(Yatzy.ones(6, 2, 2, 4, 5)).isEqualTo(0);
-        assertThat(Yatzy.ones(1, 2, 1, 1, 1)).isEqualTo(4);
+        assertThat(new Yatzy(1, 2, 3, 4, 5).ones()).isEqualTo(1);
+        assertThat(new Yatzy(1, 2, 1, 4, 5).ones()).isEqualTo(2);
+        assertThat(new Yatzy(6, 2, 2, 4, 5).ones()).isEqualTo(0);
+        assertThat(new Yatzy(1, 2, 1, 1, 1).ones()).isEqualTo(4);
     }
 
     @Test
     public void test_2s() {
-        assertThat(Yatzy.twos(1, 2, 3, 2, 6)).isEqualTo(4);
-        assertThat(Yatzy.twos(2, 2, 2, 2, 2)).isEqualTo(10);
+        assertThat(new Yatzy(1, 2, 3, 2, 6).twos()).isEqualTo(4);
+        assertThat(new Yatzy(2, 2, 2, 2, 2).twos()).isEqualTo(10);
     }
 
     @Test
     public void test_threes() {
-        assertThat(Yatzy.threes(1, 2, 3, 2, 3)).isEqualTo(6);
-        assertThat(Yatzy.threes(2, 3, 3, 3, 3)).isEqualTo(12);
+        assertThat(new Yatzy(1, 2, 3, 2, 3).threes()).isEqualTo(6);
+        assertThat(new Yatzy(2, 3, 3, 3, 3).threes()).isEqualTo(12);
     }
 
     @Test
@@ -60,50 +60,50 @@ public class YatzyTest {
 
     @Test
     public void one_pair() {
-        assertThat(Yatzy.pair(3, 4, 3, 5, 6)).isEqualTo(6);
-        assertThat(Yatzy.pair(5, 3, 3, 3, 5)).isEqualTo(10);
-        assertThat(Yatzy.pair(5, 3, 6, 6, 5)).isEqualTo(12);
+        assertThat(new Yatzy(3, 4, 3, 5, 6).pair()).isEqualTo(6);
+        assertThat(new Yatzy(5, 3, 3, 3, 5).pair()).isEqualTo(10);
+        assertThat(new Yatzy(5, 3, 6, 6, 5).pair()).isEqualTo(12);
     }
 
     @Test
     public void two_pairs() {
-        assertThat(Yatzy.twoPairs(3, 3, 5, 4, 5)).isEqualTo(16);
-        assertThat(Yatzy.twoPairs(3, 3, 5, 5, 5)).isEqualTo(16);
+        assertThat(new Yatzy(3, 3, 5, 4, 5).twoPairs()).isEqualTo(16);
+        assertThat(new Yatzy(3, 3, 5, 5, 5).twoPairs()).isEqualTo(16);
     }
 
     @Test
     public void three_of_a_kind() {
-        assertThat(Yatzy.threeOfAKind(3, 3, 3, 4, 5)).isEqualTo(9);
-        assertThat(Yatzy.threeOfAKind(5, 3, 5, 4, 5)).isEqualTo(15);
-        assertThat(Yatzy.threeOfAKind(3, 3, 3, 3, 5)).isEqualTo(9);
+        assertThat(new Yatzy(3, 3, 3, 4, 5).threeOfAKind()).isEqualTo(9);
+        assertThat(new Yatzy(5, 3, 5, 4, 5).threeOfAKind()).isEqualTo(15);
+        assertThat(new Yatzy(3, 3, 3, 3, 5).threeOfAKind()).isEqualTo(9);
     }
 
     @Test
     public void four_of_a_kind() {
-        assertThat(Yatzy.fourOfAKind(3, 3, 3, 3, 5)).isEqualTo(12);
-        assertThat(Yatzy.fourOfAKind(5, 5, 5, 4, 5)).isEqualTo(20);
-        assertThat(Yatzy.fourOfAKind(3, 3, 3, 3, 3)).isEqualTo(12);
+        assertThat(new Yatzy(3, 3, 3, 3, 5).fourOfAKind()).isEqualTo(12);
+        assertThat(new Yatzy(5, 5, 5, 4, 5).fourOfAKind()).isEqualTo(20);
+        assertThat(new Yatzy(3, 3, 3, 3, 3).fourOfAKind()).isEqualTo(12);
 
     }
 
     @Test
     public void small_straight() {
-        assertThat(Yatzy.smallStraight(1, 2, 3, 4, 5)).isEqualTo(15);
-        assertThat(Yatzy.smallStraight(2, 3, 4, 5, 1)).isEqualTo(15);
-        assertThat(Yatzy.smallStraight(1, 2, 2, 4, 5)).isEqualTo(0);
+        assertThat(new Yatzy(1, 2, 3, 4, 5).smallStraight()).isEqualTo(15);
+        assertThat(new Yatzy(2, 3, 4, 5, 1).smallStraight()).isEqualTo(15);
+        assertThat(new Yatzy(1, 2, 2, 4, 5).smallStraight()).isEqualTo(0);
     }
 
     @Test
     public void large_straight() {
-        assertThat(Yatzy.largeStraight(6, 2, 3, 4, 5)).isEqualTo(20);
-        assertThat(Yatzy.largeStraight(2, 3, 4, 5, 6)).isEqualTo(20);
-        assertThat(Yatzy.largeStraight(1, 2, 2, 4, 5)).isEqualTo(0);
+        assertThat(new Yatzy(6, 2, 3, 4, 5).largeStraight()).isEqualTo(20);
+        assertThat(new Yatzy(2, 3, 4, 5, 6).largeStraight()).isEqualTo(20);
+        assertThat(new Yatzy(1, 2, 2, 4, 5).largeStraight()).isEqualTo(0);
     }
 
     @Test
     public void full_house() {
-        assertThat(Yatzy.fullHouse(6, 2, 2, 2, 6)).isEqualTo(18);
-        assertThat(Yatzy.fullHouse(2, 3, 4, 5, 6)).isEqualTo(0);
+        assertThat(new Yatzy(6, 2, 2, 2, 6).fullHouse()).isEqualTo(18);
+        assertThat(new Yatzy(2, 3, 4, 5, 6).fullHouse()).isEqualTo(0);
     }
 
 }

@@ -1,6 +1,11 @@
 public class Yatzy {
 
-    public static int chance(int d1, int d2, int d3, int d4, int d5) {
+    public int chance() {
+        int d1 = dice[0];
+        int d2 = dice[1];
+        int d3 = dice[2];
+        int d4 = dice[3];
+        int d5 = dice[4];
         int total = 0;
         total += d1;
         total += d2;
@@ -10,7 +15,7 @@ public class Yatzy {
         return total;
     }
 
-    public static int yatzy(int... dice) {
+    public int yatzy() {
         int[] counts = new int[6];
         for (int die : dice)
             counts[die - 1]++;
@@ -20,7 +25,12 @@ public class Yatzy {
         return 0;
     }
 
-    public static int ones(int d1, int d2, int d3, int d4, int d5) {
+    public int ones() {
+        int d1 = dice[0];
+        int d2 = dice[1];
+        int d3 = dice[2];
+        int d4 = dice[3];
+        int d5 = dice[4];
         int sum = 0;
         if (d1 == 1) sum++;
         if (d2 == 1) sum++;
@@ -31,7 +41,12 @@ public class Yatzy {
         return sum;
     }
 
-    public static int twos(int d1, int d2, int d3, int d4, int d5) {
+    public int twos() {
+        int d1 = dice[0];
+        int d2 = dice[1];
+        int d3 = dice[2];
+        int d4 = dice[3];
+        int d5 = dice[4];
         int sum = 0;
         if (d1 == 2) sum += 2;
         if (d2 == 2) sum += 2;
@@ -41,7 +56,12 @@ public class Yatzy {
         return sum;
     }
 
-    public static int threes(int d1, int d2, int d3, int d4, int d5) {
+    public int threes() {
+        int d1 = dice[0];
+        int d2 = dice[1];
+        int d3 = dice[2];
+        int d4 = dice[3];
+        int d5 = dice[4];
         int s;
         s = 0;
         if (d1 == 3) s += 3;
@@ -91,7 +111,12 @@ public class Yatzy {
         return sum;
     }
 
-    public static int pair(int d1, int d2, int d3, int d4, int d5) {
+    public int pair() {
+        int d1 = dice[0];
+        int d2 = dice[1];
+        int d3 = dice[2];
+        int d4 = dice[3];
+        int d5 = dice[4];
         int[] counts = new int[6];
         counts[d1 - 1]++;
         counts[d2 - 1]++;
@@ -105,7 +130,12 @@ public class Yatzy {
         return 0;
     }
 
-    public static int twoPairs(int d1, int d2, int d3, int d4, int d5) {
+    public int twoPairs() {
+        int d1 = dice[0];
+        int d2 = dice[1];
+        int d3 = dice[2];
+        int d4 = dice[3];
+        int d5 = dice[4];
         int[] counts = new int[6];
         counts[d1 - 1]++;
         counts[d2 - 1]++;
@@ -125,7 +155,12 @@ public class Yatzy {
             return 0;
     }
 
-    public static int fourOfAKind(int d1, int d2, int d3, int d4, int d5) {
+    public int fourOfAKind() {
+        int d1 = dice[0];
+        int d2 = dice[1];
+        int d3 = dice[2];
+        int d4 = dice[3];
+        int d5 = dice[4];
         int[] tallies;
         tallies = new int[6];
         tallies[d1 - 1]++;
@@ -139,7 +174,12 @@ public class Yatzy {
         return 0;
     }
 
-    public static int threeOfAKind(int d1, int d2, int d3, int d4, int d5) {
+    public int threeOfAKind() {
+        int d1 = dice[0];
+        int d2 = dice[1];
+        int d3 = dice[2];
+        int d4 = dice[3];
+        int d5 = dice[4];
         int[] t;
         t = new int[6];
         t[d1 - 1]++;
@@ -153,7 +193,12 @@ public class Yatzy {
         return 0;
     }
 
-    public static int smallStraight(int d1, int d2, int d3, int d4, int d5) {
+    public int smallStraight() {
+        int d1 = dice[0];
+        int d2 = dice[1];
+        int d3 = dice[2];
+        int d4 = dice[3];
+        int d5 = dice[4];
         int[] tallies;
         tallies = new int[6];
         tallies[d1 - 1] += 1;
@@ -170,7 +215,12 @@ public class Yatzy {
         return 0;
     }
 
-    public static int largeStraight(int d1, int d2, int d3, int d4, int d5) {
+    public int largeStraight() {
+        int d1 = dice[0];
+        int d2 = dice[1];
+        int d3 = dice[2];
+        int d4 = dice[3];
+        int d5 = dice[4];
         int[] tallies;
         tallies = new int[6];
         tallies[d1 - 1] += 1;
@@ -187,7 +237,12 @@ public class Yatzy {
         return 0;
     }
 
-    public static int fullHouse(int d1, int d2, int d3, int d4, int d5) {
+    public int fullHouse() {
+        int d1 = dice[0];
+        int d2 = dice[1];
+        int d3 = dice[2];
+        int d4 = dice[3];
+        int d5 = dice[4];
         int[] tallies;
         boolean _2 = false;
         int i;
@@ -221,6 +276,3 @@ public class Yatzy {
             return 0;
     }
 }
-
-
-
