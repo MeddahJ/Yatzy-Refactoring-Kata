@@ -19,13 +19,7 @@ public class Yatzy {
     }
 
     public int yatzy() {
-        int[] counts = new int[6];
-        for (int die : dice)
-            counts[die - 1]++;
-        for (int i = 0; i != 6; i++)
-            if (counts[i] == 5)
-                return 50;
-        return 0;
+        return IntStream.of(dice).distinct().count() == 1 ? 50 : 0;
     }
 
     public int ones() {
