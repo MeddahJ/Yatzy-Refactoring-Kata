@@ -1,5 +1,6 @@
-import org.junit.*;
-import static org.junit.Assert.*;
+import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class YatzyTest {
 
@@ -102,5 +103,14 @@ public class YatzyTest {
     public void fullHouse() {
         assertEquals(18, Yatzy.fullHouse(6,2,2,2,6));
         assertEquals(0, Yatzy.fullHouse(2,3,4,5,6));
+    }
+
+    public void assertEquals(int expected, int actual) {
+        assertThat(actual).isEqualTo(expected);
+    }
+
+
+    public void assertTrue(boolean condition) {
+        assertThat(condition).isTrue();
     }
 }
