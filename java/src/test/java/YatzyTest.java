@@ -6,111 +6,103 @@ public class YatzyTest {
 
     @Test
     public void chance_scores_sum_of_all_dice() {
-        assertEquals(15, Yatzy.chance(2,3,4,5,1));
-        assertEquals(16, Yatzy.chance(3,3,4,5,1));
+        assertThat(Yatzy.chance(2,3,4,5,1)).isEqualTo(15);
+        assertThat(Yatzy.chance(3,3,4,5,1)).isEqualTo(16);
     }
 
     @Test public void yatzy_scores_50() {
-        assertEquals(50, Yatzy.yatzy(4,4,4,4,4));
-        assertEquals(50, Yatzy.yatzy(6,6,6,6,6));
-        assertEquals(0, Yatzy.yatzy(6,6,6,6,3));
+        assertThat(Yatzy.yatzy(4,4,4,4,4)).isEqualTo(50);
+        assertThat(Yatzy.yatzy(6,6,6,6,6)).isEqualTo(50);
+        assertThat(Yatzy.yatzy(6,6,6,6,3)).isEqualTo(0);
     }
 
     @Test public void test_1s() {
-        assertTrue(Yatzy.ones(1,2,3,4,5) == 1);
-        assertEquals(2, Yatzy.ones(1,2,1,4,5));
-        assertEquals(0, Yatzy.ones(6,2,2,4,5));
-        assertEquals(4, Yatzy.ones(1,2,1,1,1));
+        assertThat(Yatzy.ones(1,2,3,4,5) == 1).isTrue();
+        assertThat(Yatzy.ones(1,2,1,4,5)).isEqualTo(2);
+        assertThat(Yatzy.ones(6,2,2,4,5)).isEqualTo(0);
+        assertThat(Yatzy.ones(1,2,1,1,1)).isEqualTo(4);
     }
 
     @Test
     public void test_2s() {
-        assertEquals(4, Yatzy.twos(1,2,3,2,6));
-        assertEquals(10, Yatzy.twos(2,2,2,2,2));
+        assertThat(Yatzy.twos(1,2,3,2,6)).isEqualTo(4);
+        assertThat(Yatzy.twos(2,2,2,2,2)).isEqualTo(10);
     }
 
     @Test
     public void test_threes() {
-        assertEquals(6, Yatzy.threes(1,2,3,2,3));
-        assertEquals(12, Yatzy.threes(2,3,3,3,3));
+        assertThat(Yatzy.threes(1,2,3,2,3)).isEqualTo(6);
+        assertThat(Yatzy.threes(2,3,3,3,3)).isEqualTo(12);
     }
 
     @Test
     public void fours_test() 
     {
-        assertEquals(12, new Yatzy(4,4,4,5,5).fours());
-        assertEquals(8, new Yatzy(4,4,5,5,5).fours());
-        assertEquals(4, new Yatzy(4,5,5,5,5).fours());
+        assertThat(new Yatzy(4,4,4,5,5).fours()).isEqualTo(12);
+        assertThat(new Yatzy(4,4,5,5,5).fours()).isEqualTo(8);
+        assertThat(new Yatzy(4,5,5,5,5).fours()).isEqualTo(4);
     }
 
     @Test
     public void fives() {
-        assertEquals(10, new Yatzy(4,4,4,5,5).fives());
-        assertEquals(15, new Yatzy(4,4,5,5,5).fives());
-        assertEquals(20, new Yatzy(4,5,5,5,5).fives());
+        assertThat(new Yatzy(4,4,4,5,5).fives()).isEqualTo(10);
+        assertThat(new Yatzy(4,4,5,5,5).fives()).isEqualTo(15);
+        assertThat(new Yatzy(4,5,5,5,5).fives()).isEqualTo(20);
     }
 
     @Test
     public void sixes_test() {
-        assertEquals(0, new Yatzy(4,4,4,5,5).sixes());
-        assertEquals(6, new Yatzy(4,4,6,5,5).sixes());
-        assertEquals(18, new Yatzy(6,5,6,6,5).sixes());
+        assertThat(new Yatzy(4,4,4,5,5).sixes()).isEqualTo(0);
+        assertThat(new Yatzy(4,4,6,5,5).sixes()).isEqualTo(6);
+        assertThat(new Yatzy(6,5,6,6,5).sixes()).isEqualTo(18);
     }
 
     @Test
     public void one_pair() {
-        assertEquals(6, Yatzy.score_pair(3,4,3,5,6));
-        assertEquals(10, Yatzy.score_pair(5,3,3,3,5));
-        assertEquals(12, Yatzy.score_pair(5,3,6,6,5));
+        assertThat(Yatzy.score_pair(3,4,3,5,6)).isEqualTo(6);
+        assertThat(Yatzy.score_pair(5,3,3,3,5)).isEqualTo(10);
+        assertThat(Yatzy.score_pair(5,3,6,6,5)).isEqualTo(12);
     }
 
     @Test
     public void two_Pair() {
-        assertEquals(16, Yatzy.two_pair(3,3,5,4,5));
-        assertEquals(16, Yatzy.two_pair(3,3,5,5,5));
+        assertThat(Yatzy.two_pair(3,3,5,4,5)).isEqualTo(16);
+        assertThat(Yatzy.two_pair(3,3,5,5,5)).isEqualTo(16);
     }
 
     @Test
     public void three_of_a_kind() 
     {
-        assertEquals(9, Yatzy.three_of_a_kind(3,3,3,4,5));
-        assertEquals(15, Yatzy.three_of_a_kind(5,3,5,4,5));
-        assertEquals(9, Yatzy.three_of_a_kind(3,3,3,3,5));
+        assertThat(Yatzy.three_of_a_kind(3,3,3,4,5)).isEqualTo(9);
+        assertThat(Yatzy.three_of_a_kind(5,3,5,4,5)).isEqualTo(15);
+        assertThat(Yatzy.three_of_a_kind(3,3,3,3,5)).isEqualTo(9);
     }
 
     @Test
     public void four_of_a_knd() {
-        assertEquals(12, Yatzy.four_of_a_kind(3,3,3,3,5));
-        assertEquals(20, Yatzy.four_of_a_kind(5,5,5,4,5));
-        assertEquals(9, Yatzy.three_of_a_kind(3,3,3,3,3));
+        assertThat(Yatzy.four_of_a_kind(3,3,3,3,5)).isEqualTo(12);
+        assertThat(Yatzy.four_of_a_kind(5,5,5,4,5)).isEqualTo(20);
+        assertThat(Yatzy.three_of_a_kind(3,3,3,3,3)).isEqualTo(9);
     }
 
     @Test
     public void smallStraight() {
-        assertEquals(15, Yatzy.smallStraight(1,2,3,4,5));
-        assertEquals(15, Yatzy.smallStraight(2,3,4,5,1));
-        assertEquals(0, Yatzy.smallStraight(1,2,2,4,5));
+        assertThat(Yatzy.smallStraight(1,2,3,4,5)).isEqualTo(15);
+        assertThat(Yatzy.smallStraight(2,3,4,5,1)).isEqualTo(15);
+        assertThat(Yatzy.smallStraight(1,2,2,4,5)).isEqualTo(0);
     }
 
     @Test
     public void largeStraight() {
-        assertEquals(20, Yatzy.largeStraight(6,2,3,4,5));
-        assertEquals(20, Yatzy.largeStraight(2,3,4,5,6));
-        assertEquals(0, Yatzy.largeStraight(1,2,2,4,5));
+        assertThat(Yatzy.largeStraight(6,2,3,4,5)).isEqualTo(20);
+        assertThat(Yatzy.largeStraight(2,3,4,5,6)).isEqualTo(20);
+        assertThat(Yatzy.largeStraight(1,2,2,4,5)).isEqualTo(0);
     }
 
     @Test
     public void fullHouse() {
-        assertEquals(18, Yatzy.fullHouse(6,2,2,2,6));
-        assertEquals(0, Yatzy.fullHouse(2,3,4,5,6));
+        assertThat(Yatzy.fullHouse(6,2,2,2,6)).isEqualTo(18);
+        assertThat(Yatzy.fullHouse(2,3,4,5,6)).isEqualTo(0);
     }
 
-    public void assertEquals(int expected, int actual) {
-        assertThat(actual).isEqualTo(expected);
-    }
-
-
-    public void assertTrue(boolean condition) {
-        assertThat(condition).isTrue();
-    }
 }
