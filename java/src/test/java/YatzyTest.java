@@ -79,7 +79,7 @@ public class YatzyTest {
     }
 
     @Test
-    public void four_of_a_knd() {
+    public void four_of_a_kind() {
         assertThat(Yatzy.four_of_a_kind(3,3,3,3,5)).isEqualTo(12);
         assertThat(Yatzy.four_of_a_kind(5,5,5,4,5)).isEqualTo(20);
         assertThat(Yatzy.three_of_a_kind(3,3,3,3,3)).isEqualTo(9);
