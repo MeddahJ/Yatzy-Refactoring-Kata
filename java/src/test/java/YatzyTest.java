@@ -65,7 +65,7 @@ public class YatzyTest {
     }
 
     @Test
-    public void two_Pair() {
+    public void two_pairs() {
         assertThat(Yatzy.two_pair(3,3,5,4,5)).isEqualTo(16);
         assertThat(Yatzy.two_pair(3,3,5,5,5)).isEqualTo(16);
     }
@@ -86,21 +86,21 @@ public class YatzyTest {
     }
 
     @Test
-    public void smallStraight() {
+    public void small_straight() {
         assertThat(Yatzy.smallStraight(1,2,3,4,5)).isEqualTo(15);
         assertThat(Yatzy.smallStraight(2,3,4,5,1)).isEqualTo(15);
         assertThat(Yatzy.smallStraight(1,2,2,4,5)).isEqualTo(0);
     }
 
     @Test
-    public void largeStraight() {
+    public void large_straight() {
         assertThat(Yatzy.largeStraight(6,2,3,4,5)).isEqualTo(20);
         assertThat(Yatzy.largeStraight(2,3,4,5,6)).isEqualTo(20);
         assertThat(Yatzy.largeStraight(1,2,2,4,5)).isEqualTo(0);
     }
 
     @Test
-    public void fullHouse() {
+    public void full_house() {
         assertThat(Yatzy.fullHouse(6,2,2,2,6)).isEqualTo(18);
         assertThat(Yatzy.fullHouse(2,3,4,5,6)).isEqualTo(0);
     }
