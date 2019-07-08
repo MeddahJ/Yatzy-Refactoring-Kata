@@ -1,9 +1,11 @@
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import static com.google.common.collect.Sets.newHashSet;
 import static com.google.common.primitives.Ints.asList;
 import static java.util.Comparator.naturalOrder;
 import static java.util.stream.Collectors.toList;
@@ -90,37 +92,13 @@ public class Yatzy {
     }
 
     public int smallStraight() {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[dice[0] - 1] += 1;
-        tallies[dice[1] - 1] += 1;
-        tallies[dice[2] - 1] += 1;
-        tallies[dice[3] - 1] += 1;
-        tallies[dice[4] - 1] += 1;
-        if (tallies[0] == 1 &&
-                tallies[1] == 1 &&
-                tallies[2] == 1 &&
-                tallies[3] == 1 &&
-                tallies[4] == 1)
-            return 15;
-        return 0;
+        // Only one dice roll will yield this sum
+        return chance() == 15 ? 15 : 0;
     }
 
     public int largeStraight() {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[dice[0] - 1] += 1;
-        tallies[dice[1] - 1] += 1;
-        tallies[dice[2] - 1] += 1;
-        tallies[dice[3] - 1] += 1;
-        tallies[dice[4] - 1] += 1;
-        if (tallies[1] == 1 &&
-                tallies[2] == 1 &&
-                tallies[3] == 1 &&
-                tallies[4] == 1
-                && tallies[5] == 1)
-            return 20;
-        return 0;
+        // Only one dice roll will yield this sum
+        return chance() == 20 ? 20 : 0;
     }
 
     public int fullHouse() {
