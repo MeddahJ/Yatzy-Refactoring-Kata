@@ -37,10 +37,10 @@ Yatzy.chance = function (d1, d2, d3, d4, d5) {
     return total;
 };
 
-Yatzy.yatzy = function () {
+Yatzy.yatzy = function (...dice) {
     const counts = [0, 0, 0, 0, 0, 0, 0, 0];
-    for (let i = 0; i !== arguments.length; i += 1) {
-        const die = arguments[i];
+    for (let i = 0; i !== dice.length; i += 1) {
+        const die = dice[i];
         counts[die - 1] = counts[die - 1] + 1;
     }
     for (let i = 0; i !== 6; i += 1) if (counts[i] === 5) return 50;
