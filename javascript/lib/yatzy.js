@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 class Yatzy {
     constructor(d1, d2, d3, d4, d5) {
         this.dice = [d1, d2, d3, d4, d5];
