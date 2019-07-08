@@ -80,7 +80,7 @@ public class YatzyTest {
             "3, 4, 3, 5, 6, 6",
             "5, 3, 3, 3, 5, 10",
             "5, 3, 6, 6, 5, 12"})
-    public void should_one_pair_score_dice_value_doubled(int d1, int d2, int d3, int d4, int d5, int expected) {
+    public void should_one_pair_score_sum_of_both_dice_values(int d1, int d2, int d3, int d4, int d5, int expected) {
         assertThat(new Yatzy(d1, d2, d3, d4, d5).pair()).isEqualTo(expected);
     }
 
@@ -88,7 +88,7 @@ public class YatzyTest {
     @CsvSource(value = {
             "3, 3, 5, 4, 5, 16",
             "3, 3, 5, 5, 5, 16"})
-    public void should_two_pairs_score_sum_of_doubled_dice_values(int d1, int d2, int d3, int d4, int d5, int expected) {
+    public void should_two_pairs_score_sum_of_all_four_dice_values(int d1, int d2, int d3, int d4, int d5, int expected) {
         assertThat(new Yatzy(d1, d2, d3, d4, d5).twoPairs()).isEqualTo(expected);
     }
 
@@ -97,7 +97,7 @@ public class YatzyTest {
             "3, 3, 3, 4, 5, 9",
             "5, 3, 5, 4, 5, 15",
             "3, 3, 3, 3, 5, 9"})
-    public void should_three_of_a_kind_score_dice_value_tripled(int d1, int d2, int d3, int d4, int d5, int expected) {
+    public void should_three_of_a_kind_score_sum_of_three_dice_values(int d1, int d2, int d3, int d4, int d5, int expected) {
         assertThat(new Yatzy(d1, d2, d3, d4, d5).threeOfAKind()).isEqualTo(expected);
     }
 
@@ -106,7 +106,7 @@ public class YatzyTest {
             "3, 3, 3, 3, 5, 12",
             "5, 5, 5, 4, 5, 20",
             "3, 3, 3, 3, 3, 12"})
-    public void should_four_of_a_kind_score_dice_value_quadrupled(int d1, int d2, int d3, int d4, int d5, int expected) {
+    public void should_four_of_a_kind_score_sum_of_four_dice_values(int d1, int d2, int d3, int d4, int d5, int expected) {
         assertThat(new Yatzy(d1, d2, d3, d4, d5).fourOfAKind()).isEqualTo(expected);
     }
 
