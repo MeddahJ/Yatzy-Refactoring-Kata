@@ -26,77 +26,77 @@ const Yatzy = function (d1, d2, d3, d4, d5) {
     };
 
 
-    this.chance = function (d1, d2, d3, d4, d5) {
+    this.chance = function () {
         let total = 0;
-        total += d1;
-        total += d2;
-        total += d3;
-        total += d4;
-        total += d5;
+        total += this.dice[0];
+        total += this.dice[1];
+        total += this.dice[2];
+        total += this.dice[3];
+        total += this.dice[4];
         return total;
     };
 
-    this.yatzy = function (...dice) {
+    this.yatzy = function () {
         const counts = [0, 0, 0, 0, 0, 0, 0, 0];
-        for (let i = 0; i !== dice.length; i += 1) {
-            const die = dice[i];
+        for (let i = 0; i !== this.dice.length; i += 1) {
+            const die = this.dice[i];
             counts[die - 1] = counts[die - 1] + 1;
         }
         for (let i = 0; i !== 6; i += 1) if (counts[i] === 5) return 50;
         return 0;
     };
 
-    this.ones = function (d1, d2, d3, d4, d5) {
+    this.ones = function () {
         let sum = 0;
-        if (d1 === 1) sum += 1;
-        if (d2 === 1) sum += 1;
-        if (d3 === 1) sum += 1;
-        if (d4 === 1) sum += 1;
-        if (d5 === 1) sum += 1;
+        if (this.dice[0] === 1) sum += 1;
+        if (this.dice[1] === 1) sum += 1;
+        if (this.dice[2] === 1) sum += 1;
+        if (this.dice[3] === 1) sum += 1;
+        if (this.dice[4] === 1) sum += 1;
 
         return sum;
     };
 
-    this.twos = function (d1, d2, d3, d4, d5) {
+    this.twos = function () {
         let sum = 0;
-        if (d1 === 2) sum += 2;
-        if (d2 === 2) sum += 2;
-        if (d3 === 2) sum += 2;
-        if (d4 === 2) sum += 2;
-        if (d5 === 2) sum += 2;
+        if (this.dice[0] === 2) sum += 2;
+        if (this.dice[1] === 2) sum += 2;
+        if (this.dice[2] === 2) sum += 2;
+        if (this.dice[3] === 2) sum += 2;
+        if (this.dice[4] === 2) sum += 2;
         return sum;
     };
 
-    this.threes = function (d1, d2, d3, d4, d5) {
+    this.threes = function () {
         let s;
         s = 0;
-        if (d1 === 3) s += 3;
-        if (d2 === 3) s += 3;
-        if (d3 === 3) s += 3;
-        if (d4 === 3) s += 3;
-        if (d5 === 3) s += 3;
+        if (this.dice[0] === 3) s += 3;
+        if (this.dice[1] === 3) s += 3;
+        if (this.dice[2] === 3) s += 3;
+        if (this.dice[3] === 3) s += 3;
+        if (this.dice[4] === 3) s += 3;
         return s;
     };
 
-    this.score_pair = function (d1, d2, d3, d4, d5) {
+    this.score_pair = function () {
         const counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-        counts[d1 - 1] = counts[d1 - 1] + 1;
-        counts[d2 - 1] = counts[d2 - 1] + 1;
-        counts[d3 - 1] = counts[d3 - 1] + 1;
-        counts[d4 - 1] = counts[d4 - 1] + 1;
-        counts[d5 - 1] = counts[d5 - 1] + 1;
+        counts[this.dice[0] - 1] = counts[this.dice[0] - 1] + 1;
+        counts[this.dice[1] - 1] = counts[this.dice[1] - 1] + 1;
+        counts[this.dice[2] - 1] = counts[this.dice[2] - 1] + 1;
+        counts[this.dice[3] - 1] = counts[this.dice[3] - 1] + 1;
+        counts[this.dice[4] - 1] = counts[this.dice[4] - 1] + 1;
         let at;
         for (at = 0; at !== 6; at += 1) if (counts[6 - at - 1] >= 2) return (6 - at) * 2;
         return 0;
     };
 
-    this.two_pair = function (d1, d2, d3, d4, d5) {
+    this.two_pair = function () {
         const counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-        counts[d1 - 1] = counts[d1 - 1] + 1;
-        counts[d2 - 1] = counts[d2 - 1] + 1;
-        counts[d3 - 1] = counts[d3 - 1] + 1;
-        counts[d4 - 1] = counts[d4 - 1] + 1;
-        counts[d5 - 1] = counts[d5 - 1] + 1;
+        counts[this.dice[0] - 1] = counts[this.dice[0] - 1] + 1;
+        counts[this.dice[1] - 1] = counts[this.dice[1] - 1] + 1;
+        counts[this.dice[2] - 1] = counts[this.dice[2] - 1] + 1;
+        counts[this.dice[3] - 1] = counts[this.dice[3] - 1] + 1;
+        counts[this.dice[4] - 1] = counts[this.dice[4] - 1] + 1;
         let n = 0;
         let score = 0;
         for (let i = 0; i < 6; i += 1) {
@@ -109,35 +109,35 @@ const Yatzy = function (d1, d2, d3, d4, d5) {
         return 0;
     };
 
-    this.four_of_a_kind = function (d1, d2, d3, d4, d5) {
+    this.four_of_a_kind = function () {
         const tallies = [0, 0, 0, 0, 0, 0, 0, 0];
-        tallies[d1 - 1] = tallies[d1 - 1] + 1;
-        tallies[d2 - 1] = tallies[d2 - 1] + 1;
-        tallies[d3 - 1] = tallies[d3 - 1] + 1;
-        tallies[d4 - 1] = tallies[d4 - 1] + 1;
-        tallies[d5 - 1] = tallies[d5 - 1] + 1;
+        tallies[this.dice[0] - 1] = tallies[this.dice[0] - 1] + 1;
+        tallies[this.dice[1] - 1] = tallies[this.dice[1] - 1] + 1;
+        tallies[this.dice[2] - 1] = tallies[this.dice[2] - 1] + 1;
+        tallies[this.dice[3] - 1] = tallies[this.dice[3] - 1] + 1;
+        tallies[this.dice[4] - 1] = tallies[this.dice[4] - 1] + 1;
         for (let i = 0; i < 6; i += 1) if (tallies[i] >= 4) return (i + 1) * 4;
         return 0;
     };
 
-    this.three_of_a_kind = function (d1, d2, d3, d4, d5) {
+    this.three_of_a_kind = function () {
         const t = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-        t[d1 - 1] = t[d1 - 1] + 1;
-        t[d2 - 1] = t[d2 - 1] + 1;
-        t[d3 - 1] = t[d3 - 1] + 1;
-        t[d4 - 1] = t[d4 - 1] + 1;
-        t[d5 - 1] = t[d5 - 1] + 1;
+        t[this.dice[0] - 1] = t[this.dice[0] - 1] + 1;
+        t[this.dice[1] - 1] = t[this.dice[1] - 1] + 1;
+        t[this.dice[2] - 1] = t[this.dice[2] - 1] + 1;
+        t[this.dice[3] - 1] = t[this.dice[3] - 1] + 1;
+        t[this.dice[4] - 1] = t[this.dice[4] - 1] + 1;
         for (let i = 0; i < 6; i += 1) if (t[i] >= 3) return (i + 1) * 3;
         return 0;
     };
 
-    this.smallStraight = function (d1, d2, d3, d4, d5) {
+    this.smallStraight = function () {
         const tallies = [0, 0, 0, 0, 0, 0, 0];
-        tallies[d1 - 1] = tallies[d1 - 1] + 1;
-        tallies[d2 - 1] = tallies[d2 - 1] + 1;
-        tallies[d3 - 1] = tallies[d3 - 1] + 1;
-        tallies[d4 - 1] = tallies[d4 - 1] + 1;
-        tallies[d5 - 1] = tallies[d5 - 1] + 1;
+        tallies[this.dice[0] - 1] = tallies[this.dice[0] - 1] + 1;
+        tallies[this.dice[1] - 1] = tallies[this.dice[1] - 1] + 1;
+        tallies[this.dice[2] - 1] = tallies[this.dice[2] - 1] + 1;
+        tallies[this.dice[3] - 1] = tallies[this.dice[3] - 1] + 1;
+        tallies[this.dice[4] - 1] = tallies[this.dice[4] - 1] + 1;
         if (tallies[0] === 1
             && tallies[1] === 1
             && tallies[2] === 1
@@ -146,13 +146,13 @@ const Yatzy = function (d1, d2, d3, d4, d5) {
         return 0;
     };
 
-    this.largeStraight = function (d1, d2, d3, d4, d5) {
+    this.largeStraight = function () {
         const tallies = [0, 0, 0, 0, 0, 0, 0, 0];
-        tallies[d1 - 1] = tallies[d1 - 1] + 1;
-        tallies[d2 - 1] = tallies[d2 - 1] + 1;
-        tallies[d3 - 1] = tallies[d3 - 1] + 1;
-        tallies[d4 - 1] = tallies[d4 - 1] + 1;
-        tallies[d5 - 1] = tallies[d5 - 1] + 1;
+        tallies[this.dice[0] - 1] = tallies[this.dice[0] - 1] + 1;
+        tallies[this.dice[1] - 1] = tallies[this.dice[1] - 1] + 1;
+        tallies[this.dice[2] - 1] = tallies[this.dice[2] - 1] + 1;
+        tallies[this.dice[3] - 1] = tallies[this.dice[3] - 1] + 1;
+        tallies[this.dice[4] - 1] = tallies[this.dice[4] - 1] + 1;
         if (tallies[1] === 1
             && tallies[2] === 1
             && tallies[3] === 1
@@ -161,7 +161,7 @@ const Yatzy = function (d1, d2, d3, d4, d5) {
         return 0;
     };
 
-    this.fullHouse = function (d1, d2, d3, d4, d5) {
+    this.fullHouse = function () {
         let pairExists = false;
         let i;
         let pairValue = 0;
@@ -170,11 +170,11 @@ const Yatzy = function (d1, d2, d3, d4, d5) {
 
 
         const tallies = [0, 0, 0, 0, 0, 0, 0, 0];
-        tallies[d1 - 1] = tallies[d1 - 1] + 1;
-        tallies[d2 - 1] = tallies[d2 - 1] + 1;
-        tallies[d3 - 1] = tallies[d3 - 1] + 1;
-        tallies[d4 - 1] = tallies[d4 - 1] + 1;
-        tallies[d5 - 1] = tallies[d5 - 1] + 1;
+        tallies[this.dice[0] - 1] = tallies[this.dice[0] - 1] + 1;
+        tallies[this.dice[1] - 1] = tallies[this.dice[1] - 1] + 1;
+        tallies[this.dice[2] - 1] = tallies[this.dice[2] - 1] + 1;
+        tallies[this.dice[3] - 1] = tallies[this.dice[3] - 1] + 1;
+        tallies[this.dice[4] - 1] = tallies[this.dice[4] - 1] + 1;
 
         for (i = 0; i !== 6; i += 1) {
             if (tallies[i] === 2) {
