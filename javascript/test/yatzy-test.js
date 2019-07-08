@@ -69,32 +69,32 @@ describe('Sixes', function () {
 
 describe('One pair', function () {
     it('scores the sum of the highest pair', function () {
-        assert.equal(6, new Yatzy(3, 4, 3, 5, 6).score_pair());
-        assert.equal(10, new Yatzy(5, 3, 3, 3, 5).score_pair());
-        assert.equal(12, new Yatzy(5, 3, 6, 6, 5).score_pair());
+        assert.equal(6, new Yatzy(3, 4, 3, 5, 6).pair());
+        assert.equal(10, new Yatzy(5, 3, 3, 3, 5).pair());
+        assert.equal(12, new Yatzy(5, 3, 6, 6, 5).pair());
     });
 });
 
 describe('Two pair', function () {
     it('scores the sum of the two pairs', function () {
-        assert.equal(16, new Yatzy(3, 3, 5, 4, 5).two_pair());
-        assert.equal(16, new Yatzy(3, 3, 5, 5, 5).two_pair());
+        assert.equal(16, new Yatzy(3, 3, 5, 4, 5).twoPairs());
+        assert.equal(16, new Yatzy(3, 3, 5, 5, 5).twoPairs());
     });
 });
 
 describe('Three of a kind', function () {
     it('scores the sum of the three of the kind', function () {
-        assert.equal(9, new Yatzy(3, 3, 3, 4, 5).three_of_a_kind());
-        assert.equal(15, new Yatzy(5, 3, 5, 4, 5).three_of_a_kind());
-        assert.equal(9, new Yatzy(3, 3, 3, 3, 5).three_of_a_kind());
+        assert.equal(9, new Yatzy(3, 3, 3, 4, 5).threeOfAKind());
+        assert.equal(15, new Yatzy(5, 3, 5, 4, 5).threeOfAKind());
+        assert.equal(9, new Yatzy(3, 3, 3, 3, 5).threeOfAKind());
     });
 });
 
 describe('Four of a kind', function () {
     it('scores the sum of the four of the kind', function () {
-        assert.equal(12, new Yatzy(3, 3, 3, 3, 5).four_of_a_kind());
-        assert.equal(20, new Yatzy(5, 5, 5, 4, 5).four_of_a_kind());
-        assert.equal(9, new Yatzy(3, 3, 3, 3, 3).three_of_a_kind());
+        assert.equal(12, new Yatzy(3, 3, 3, 3, 5).fourOfAKind());
+        assert.equal(20, new Yatzy(5, 5, 5, 4, 5).fourOfAKind());
+        assert.equal(9, new Yatzy(3, 3, 3, 3, 3).threeOfAKind());
     });
 });
 

@@ -79,7 +79,7 @@ class Yatzy {
         return s;
     }
 
-    score_pair() {
+    pair() {
         const counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         counts[this.dice[0] - 1] = counts[this.dice[0] - 1] + 1;
         counts[this.dice[1] - 1] = counts[this.dice[1] - 1] + 1;
@@ -91,7 +91,7 @@ class Yatzy {
         return 0;
     }
 
-    two_pair() {
+    twoPairs() {
         const counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         counts[this.dice[0] - 1] = counts[this.dice[0] - 1] + 1;
         counts[this.dice[1] - 1] = counts[this.dice[1] - 1] + 1;
@@ -110,18 +110,7 @@ class Yatzy {
         return 0;
     }
 
-    four_of_a_kind() {
-        const tallies = [0, 0, 0, 0, 0, 0, 0, 0];
-        tallies[this.dice[0] - 1] = tallies[this.dice[0] - 1] + 1;
-        tallies[this.dice[1] - 1] = tallies[this.dice[1] - 1] + 1;
-        tallies[this.dice[2] - 1] = tallies[this.dice[2] - 1] + 1;
-        tallies[this.dice[3] - 1] = tallies[this.dice[3] - 1] + 1;
-        tallies[this.dice[4] - 1] = tallies[this.dice[4] - 1] + 1;
-        for (let i = 0; i < 6; i += 1) if (tallies[i] >= 4) return (i + 1) * 4;
-        return 0;
-    }
-
-    three_of_a_kind() {
+    threeOfAKind() {
         const t = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         t[this.dice[0] - 1] = t[this.dice[0] - 1] + 1;
         t[this.dice[1] - 1] = t[this.dice[1] - 1] + 1;
@@ -129,6 +118,17 @@ class Yatzy {
         t[this.dice[3] - 1] = t[this.dice[3] - 1] + 1;
         t[this.dice[4] - 1] = t[this.dice[4] - 1] + 1;
         for (let i = 0; i < 6; i += 1) if (t[i] >= 3) return (i + 1) * 3;
+        return 0;
+    }
+
+    fourOfAKind() {
+        const tallies = [0, 0, 0, 0, 0, 0, 0, 0];
+        tallies[this.dice[0] - 1] = tallies[this.dice[0] - 1] + 1;
+        tallies[this.dice[1] - 1] = tallies[this.dice[1] - 1] + 1;
+        tallies[this.dice[2] - 1] = tallies[this.dice[2] - 1] + 1;
+        tallies[this.dice[3] - 1] = tallies[this.dice[3] - 1] + 1;
+        tallies[this.dice[4] - 1] = tallies[this.dice[4] - 1] + 1;
+        for (let i = 0; i < 6; i += 1) if (tallies[i] >= 4) return (i + 1) * 4;
         return 0;
     }
 
