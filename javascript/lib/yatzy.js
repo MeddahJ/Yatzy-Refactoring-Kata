@@ -12,59 +12,31 @@ class Yatzy {
     }
 
     ones() {
-        let sum = 0;
-        if (this.dice[0] === 1) sum += 1;
-        if (this.dice[1] === 1) sum += 1;
-        if (this.dice[2] === 1) sum += 1;
-        if (this.dice[3] === 1) sum += 1;
-        if (this.dice[4] === 1) sum += 1;
-
-        return sum;
+        return this.sumDiceWithValue(1);
     }
 
     twos() {
-        let sum = 0;
-        if (this.dice[0] === 2) sum += 2;
-        if (this.dice[1] === 2) sum += 2;
-        if (this.dice[2] === 2) sum += 2;
-        if (this.dice[3] === 2) sum += 2;
-        if (this.dice[4] === 2) sum += 2;
-        return sum;
+        return this.sumDiceWithValue(2);
     }
 
     threes() {
-        let s;
-        s = 0;
-        if (this.dice[0] === 3) s += 3;
-        if (this.dice[1] === 3) s += 3;
-        if (this.dice[2] === 3) s += 3;
-        if (this.dice[3] === 3) s += 3;
-        if (this.dice[4] === 3) s += 3;
-        return s;
+        return this.sumDiceWithValue(3);
     }
 
     fours() {
-        let sum;
-        sum = 0;
-        for (let at = 0; at !== 5; at += 1) {
-            if (this.dice[at] === 4) {
-                sum += 4;
-            }
-        }
-        return sum;
+        return this.sumDiceWithValue(4);
     }
 
     fives() {
-        let s = 0;
-        let i;
-        for (i = 0; i < this.dice.length; i += 1) if (this.dice[i] === 5) s += 5;
-        return s;
+        return this.sumDiceWithValue(5);
     }
 
     sixes() {
-        let sum = 0;
-        for (let at = 0; at < this.dice.length; at += 1) if (this.dice[at] === 6) sum += 6;
-        return sum;
+        return this.sumDiceWithValue(6);
+    }
+
+    sumDiceWithValue(n) {
+        return this.dice.filter(die => die === n).reduce((a, b) => a + b, 0);
     }
 
     pair() {
