@@ -94,7 +94,7 @@ describe('Four of a kind', function () {
     it('scores the sum of the four of the kind', function () {
         assert.equal(12, new Yatzy(3, 3, 3, 3, 5).fourOfAKind());
         assert.equal(20, new Yatzy(5, 5, 5, 4, 5).fourOfAKind());
-        assert.equal(9, new Yatzy(3, 3, 3, 3, 3).threeOfAKind());
+        assert.equal(12, new Yatzy(3, 3, 3, 3, 3).fourOfAKind());
     });
 });
 
