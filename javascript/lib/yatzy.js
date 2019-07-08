@@ -128,33 +128,13 @@ class Yatzy {
     }
 
     smallStraight() {
-        const tallies = [0, 0, 0, 0, 0, 0, 0];
-        tallies[this.dice[0] - 1] = tallies[this.dice[0] - 1] + 1;
-        tallies[this.dice[1] - 1] = tallies[this.dice[1] - 1] + 1;
-        tallies[this.dice[2] - 1] = tallies[this.dice[2] - 1] + 1;
-        tallies[this.dice[3] - 1] = tallies[this.dice[3] - 1] + 1;
-        tallies[this.dice[4] - 1] = tallies[this.dice[4] - 1] + 1;
-        if (tallies[0] === 1
-            && tallies[1] === 1
-            && tallies[2] === 1
-            && tallies[3] === 1
-            && tallies[4] === 1) return 15;
-        return 0;
+        // Only one combination of 5D6 can yield this sum
+        return this.chance() === 15 ? 15 : 0;
     }
 
     largeStraight() {
-        const tallies = [0, 0, 0, 0, 0, 0, 0, 0];
-        tallies[this.dice[0] - 1] = tallies[this.dice[0] - 1] + 1;
-        tallies[this.dice[1] - 1] = tallies[this.dice[1] - 1] + 1;
-        tallies[this.dice[2] - 1] = tallies[this.dice[2] - 1] + 1;
-        tallies[this.dice[3] - 1] = tallies[this.dice[3] - 1] + 1;
-        tallies[this.dice[4] - 1] = tallies[this.dice[4] - 1] + 1;
-        if (tallies[1] === 1
-            && tallies[2] === 1
-            && tallies[3] === 1
-            && tallies[4] === 1
-            && tallies[5] === 1) return 20;
-        return 0;
+        // Only one combination of 5D6 can yield this sum
+        return this.chance() === 20 ? 20 : 0;
     }
 }
 
