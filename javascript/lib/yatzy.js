@@ -4,13 +4,7 @@ class Yatzy {
     }
 
     chance() {
-        let total = 0;
-        total += this.dice[0];
-        total += this.dice[1];
-        total += this.dice[2];
-        total += this.dice[3];
-        total += this.dice[4];
-        return total;
+        return this.dice.reduce((a, b) => a + b, 0);
     }
 
     yatzy() {
