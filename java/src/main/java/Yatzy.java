@@ -72,10 +72,11 @@ public class Yatzy {
     }
 
     private int sumDiceOccurring(int occurrences) {
-        Multiset<Integer> diceBag = HashMultiset.create(asList(dice));
-
-        return diceBag.elementSet().stream()
-                .filter(die -> diceBag.count(die) >= occurrences)
+        return HashMultiset.create(asList(dice))
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getCount() >= occurrences)
+                .map(Multiset.Entry::getElement)
                 .max(naturalOrder())
                 .orElse(0) * occurrences;
     }
