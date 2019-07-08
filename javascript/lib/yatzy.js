@@ -111,8 +111,7 @@ Yatzy.two_pair = function (d1, d2, d3, d4, d5) {
 };
 
 Yatzy.four_of_a_kind = function (_1, _2, d3, d4, d5) {
-    let tallies;
-    tallies = [0, 0, 0, 0, 0, 0, 0, 0];
+    const tallies = [0, 0, 0, 0, 0, 0, 0, 0];
     tallies[_1 - 1] = tallies[_1 - 1] + 1;
     tallies[_2 - 1] = tallies[_2 - 1] + 1;
     tallies[d3 - 1] = tallies[d3 - 1] + 1;
@@ -123,8 +122,7 @@ Yatzy.four_of_a_kind = function (_1, _2, d3, d4, d5) {
 };
 
 Yatzy.three_of_a_kind = function (d1, d2, d3, d4, d5) {
-    let t;
-    t = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    const t = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     t[d1 - 1] = t[d1 - 1] + 1;
     t[d2 - 1] = t[d2 - 1] + 1;
     t[d3 - 1] = t[d3 - 1] + 1;
@@ -135,8 +133,7 @@ Yatzy.three_of_a_kind = function (d1, d2, d3, d4, d5) {
 };
 
 Yatzy.smallStraight = function (d1, d2, d3, d4, d5) {
-    let tallies;
-    tallies = [0, 0, 0, 0, 0, 0, 0];
+    const tallies = [0, 0, 0, 0, 0, 0, 0];
     tallies[d1 - 1] = tallies[d1 - 1] + 1;
     tallies[d2 - 1] = tallies[d2 - 1] + 1;
     tallies[d3 - 1] = tallies[d3 - 1] + 1;
@@ -151,8 +148,7 @@ Yatzy.smallStraight = function (d1, d2, d3, d4, d5) {
 };
 
 Yatzy.largeStraight = function (d1, d2, d3, d4, d5) {
-    let tallies;
-    tallies = [0, 0, 0, 0, 0, 0, 0, 0];
+    const tallies = [0, 0, 0, 0, 0, 0, 0, 0];
     tallies[d1 - 1] = tallies[d1 - 1] + 1;
     tallies[d2 - 1] = tallies[d2 - 1] + 1;
     tallies[d3 - 1] = tallies[d3 - 1] + 1;
@@ -167,7 +163,6 @@ Yatzy.largeStraight = function (d1, d2, d3, d4, d5) {
 };
 
 Yatzy.fullHouse = function (d1, d2, d3, d4, d5) {
-    let tallies;
     let _2 = false;
     let i;
     let _2_at = 0;
@@ -175,7 +170,7 @@ Yatzy.fullHouse = function (d1, d2, d3, d4, d5) {
     let _3_at = 0;
 
 
-    tallies = [0, 0, 0, 0, 0, 0, 0, 0];
+    const tallies = [0, 0, 0, 0, 0, 0, 0, 0];
     tallies[d1 - 1] = tallies[d1 - 1] + 1;
     tallies[d2 - 1] = tallies[d2 - 1] + 1;
     tallies[d3 - 1] = tallies[d3 - 1] + 1;
