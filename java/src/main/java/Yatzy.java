@@ -1,14 +1,13 @@
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 
+import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.stream.IntStream;
 
 import static com.google.common.collect.Sets.newHashSet;
 import static com.google.common.primitives.Ints.asList;
 import static java.util.Comparator.naturalOrder;
-import static java.util.stream.Collectors.toList;
 
 public class Yatzy {
 
@@ -71,6 +70,17 @@ public class Yatzy {
         return sumDiceOccurring(4, dice);
     }
 
+    public int twoPairs() {
+
+        int sumOfFirstPair = sumDiceOccurring(2, dice);
+
+        int[] diceWithoutFirstPair = Arrays.stream(dice).filter(die -> die != sumOfFirstPair / 2).toArray();
+
+        int sumOfSecondPair = sumDiceOccurring(2, diceWithoutFirstPair);
+
+        return sumOfFirstPair == 0 || sumOfSecondPair == 0 ? 0 : sumOfSecondPair + sumOfFirstPair;
+    }
+
     private int sumDiceOccurring(int occurrences, int... dice) {
         return HashMultiset.create(asList(dice))
                 .entrySet()
@@ -79,17 +89,6 @@ public class Yatzy {
                 .map(Multiset.Entry::getElement)
                 .max(naturalOrder())
                 .orElse(0) * occurrences;
-    }
-
-    public int twoPairs() {
-        Multiset<Integer> diceBag = HashMultiset.create(asList(dice));
-
-        List<Integer> pairs = diceBag.elementSet().stream()
-                .filter(die -> diceBag.count(die) >= 2)
-                .limit(2)
-                .collect(toList());
-
-        return pairs.size() == 2 ? (pairs.get(0) + pairs.get(1)) * 2 : 0;
     }
 
     public int smallStraight() {
