@@ -75,11 +75,15 @@ class Yatzy {
     }
 
     static sumDiceOccurring(n, dice) {
-        const potentialTuples = Array.from(MultiSet.from(dice).multiplicities())
+        // multiplicities() returns an iterator, Array.from makes an iterable out of it
+        // diceBag is an array of [value, count] arrays
+        const diceBag = Array.from(MultiSet.from(dice).multiplicities());
+
+        const potentialTuples = diceBag
             .filter(([, count]) => count >= n)
             .map(([value]) => value)
             .sort()
-            .reverse(); // Highest tuple value first
+            .reverse(); // Highest tuple value first, essentially a .sort(desc)
 
         return potentialTuples.length >= 1 ? potentialTuples[0] * n : 0;
     }
