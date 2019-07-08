@@ -54,16 +54,6 @@ class Yatzy {
         return Yatzy.sumDiceOccurring(4, this.dice);
     }
 
-    static sumDiceOccurring(n, dice) {
-        const potentialTuples = Array.from(MultiSet.from(dice).multiplicities())
-            .filter(([, count]) => count >= n)
-            .map(([value]) => value)
-            .sort()
-            .reverse(); // Highest tuple value first
-
-        return potentialTuples.length >= 1 ? potentialTuples[0] * n : 0;
-    }
-
     twoPairs() {
         const firstPairSum = Yatzy.sumDiceOccurring(2, this.dice);
 
@@ -82,6 +72,16 @@ class Yatzy {
         const pairSum = Yatzy.sumDiceOccurring(2, remainingDice);
 
         return Yatzy.sumIfNoneZero(tripleSum, pairSum);
+    }
+
+    static sumDiceOccurring(n, dice) {
+        const potentialTuples = Array.from(MultiSet.from(dice).multiplicities())
+            .filter(([, count]) => count >= n)
+            .map(([value]) => value)
+            .sort()
+            .reverse(); // Highest tuple value first
+
+        return potentialTuples.length >= 1 ? potentialTuples[0] * n : 0;
     }
 
     static sumIfNoneZero(a, b) {
