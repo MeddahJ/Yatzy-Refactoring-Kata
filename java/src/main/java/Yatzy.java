@@ -1,4 +1,11 @@
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Multiset;
+
+import java.util.List;
 import java.util.stream.IntStream;
+
+import static com.google.common.primitives.Ints.asList;
+import static java.util.stream.Collectors.toList;
 
 public class Yatzy {
 
@@ -64,23 +71,14 @@ public class Yatzy {
     }
 
     public int twoPairs() {
-        int[] counts = new int[6];
-        counts[dice[0] - 1]++;
-        counts[dice[1] - 1]++;
-        counts[dice[2] - 1]++;
-        counts[dice[3] - 1]++;
-        counts[dice[4] - 1]++;
-        int n = 0;
-        int score = 0;
-        for (int i = 0; i < 6; i += 1)
-            if (counts[6 - i - 1] >= 2) {
-                n++;
-                score += (6 - i);
-            }
-        if (n == 2)
-            return score * 2;
-        else
-            return 0;
+        Multiset<Integer> diceBag = HashMultiset.create(asList(dice));
+
+        List<Integer> pairs = diceBag.elementSet().stream()
+                .filter(die -> diceBag.count(die) >= 2)
+                .limit(2)
+                .collect(toList());
+
+        return pairs.size() == 2 ? (pairs.get(0) + pairs.get(1)) * 2 : 0;
     }
 
     public int fourOfAKind() {
