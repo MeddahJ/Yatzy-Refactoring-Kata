@@ -65,55 +65,27 @@ class Yatzy {
     }
 
     twoPairs() {
-        const counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-        counts[this.dice[0] - 1] = counts[this.dice[0] - 1] + 1;
-        counts[this.dice[1] - 1] = counts[this.dice[1] - 1] + 1;
-        counts[this.dice[2] - 1] = counts[this.dice[2] - 1] + 1;
-        counts[this.dice[3] - 1] = counts[this.dice[3] - 1] + 1;
-        counts[this.dice[4] - 1] = counts[this.dice[4] - 1] + 1;
-        let n = 0;
-        let score = 0;
-        for (let i = 0; i < 6; i += 1) {
-            if (counts[6 - i - 1] >= 2) {
-                n += 1;
-                score += (6 - i);
-            }
-        }
-        if (n === 2) return score * 2;
-        return 0;
+        const firstPairSum = Yatzy.sumDiceOccurring(2, this.dice);
+
+        const remainingDice = _.without(this.dice, firstPairSum / 2);
+
+        const secondPairSum = Yatzy.sumDiceOccurring(2, remainingDice);
+
+        return Yatzy.sumIfNoneZero(firstPairSum, secondPairSum);
     }
 
     fullHouse() {
-        let pairExists = false;
-        let i;
-        let pairValue = 0;
-        let tripleExists = false;
-        let tripleValue = 0;
+        const tripleSum = Yatzy.sumDiceOccurring(3, this.dice);
 
+        const remainingDice = _.without(this.dice, tripleSum / 3);
 
-        const tallies = [0, 0, 0, 0, 0, 0, 0, 0];
-        tallies[this.dice[0] - 1] = tallies[this.dice[0] - 1] + 1;
-        tallies[this.dice[1] - 1] = tallies[this.dice[1] - 1] + 1;
-        tallies[this.dice[2] - 1] = tallies[this.dice[2] - 1] + 1;
-        tallies[this.dice[3] - 1] = tallies[this.dice[3] - 1] + 1;
-        tallies[this.dice[4] - 1] = tallies[this.dice[4] - 1] + 1;
+        const pairSum = Yatzy.sumDiceOccurring(2, remainingDice);
 
-        for (i = 0; i !== 6; i += 1) {
-            if (tallies[i] === 2) {
-                pairExists = true;
-                pairValue = i + 1;
-            }
-        }
+        return Yatzy.sumIfNoneZero(tripleSum, pairSum);
+    }
 
-        for (i = 0; i !== 6; i += 1) {
-            if (tallies[i] === 3) {
-                tripleExists = true;
-                tripleValue = i + 1;
-            }
-        }
-
-        if (pairExists && tripleExists) return pairValue * 2 + tripleValue * 3;
-        return 0;
+    static sumIfNoneZero(a, b) {
+        return _.every([a, b]) ? a + b : 0;
     }
 
     smallStraight() {
