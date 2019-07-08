@@ -110,10 +110,10 @@ Yatzy.two_pair = function (d1, d2, d3, d4, d5) {
     return 0;
 };
 
-Yatzy.four_of_a_kind = function (_1, _2, d3, d4, d5) {
+Yatzy.four_of_a_kind = function (d1, d2, d3, d4, d5) {
     const tallies = [0, 0, 0, 0, 0, 0, 0, 0];
-    tallies[_1 - 1] = tallies[_1 - 1] + 1;
-    tallies[_2 - 1] = tallies[_2 - 1] + 1;
+    tallies[d1 - 1] = tallies[d1 - 1] + 1;
+    tallies[d2 - 1] = tallies[d2 - 1] + 1;
     tallies[d3 - 1] = tallies[d3 - 1] + 1;
     tallies[d4 - 1] = tallies[d4 - 1] + 1;
     tallies[d5 - 1] = tallies[d5 - 1] + 1;
