@@ -8,13 +8,7 @@ class Yatzy {
     }
 
     yatzy() {
-        const counts = [0, 0, 0, 0, 0, 0, 0, 0];
-        for (let i = 0; i !== this.dice.length; i += 1) {
-            const die = this.dice[i];
-            counts[die - 1] = counts[die - 1] + 1;
-        }
-        for (let i = 0; i !== 6; i += 1) if (counts[i] === 5) return 50;
-        return 0;
+        return new Set(this.dice).size === 1 ? 50 : 0;
     }
 
     ones() {
