@@ -5,5 +5,9 @@
   "dependencies": {},
   "devDependencies": {
     "mocha": "~1.17"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "watch": "mocha -w --reporter spec",
   }
 }
