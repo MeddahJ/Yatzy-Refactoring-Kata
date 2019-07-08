@@ -163,11 +163,11 @@ Yatzy.largeStraight = function (d1, d2, d3, d4, d5) {
 };
 
 Yatzy.fullHouse = function (d1, d2, d3, d4, d5) {
-    let _2 = false;
+    let pairExists = false;
     let i;
-    let _2_at = 0;
-    let _3 = false;
-    let _3_at = 0;
+    let pairValue = 0;
+    let tripleExists = false;
+    let tripleValue = 0;
 
 
     const tallies = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -179,19 +179,19 @@ Yatzy.fullHouse = function (d1, d2, d3, d4, d5) {
 
     for (i = 0; i !== 6; i += 1) {
         if (tallies[i] === 2) {
-            _2 = true;
-            _2_at = i + 1;
+            pairExists = true;
+            pairValue = i + 1;
         }
     }
 
     for (i = 0; i !== 6; i += 1) {
         if (tallies[i] === 3) {
-            _3 = true;
-            _3_at = i + 1;
+            tripleExists = true;
+            tripleValue = i + 1;
         }
     }
 
-    if (_2 && _3) return _2_at * 2 + _3_at * 3;
+    if (pairExists && tripleExists) return pairValue * 2 + tripleValue * 3;
     return 0;
 };
 
