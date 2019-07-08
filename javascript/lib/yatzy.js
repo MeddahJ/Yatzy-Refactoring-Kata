@@ -6,7 +6,7 @@ class Yatzy {
     }
 
     chance() {
-        return this.dice.reduce((a, b) => a + b, 0);
+        return _.sum(this.dice);
     }
 
     yatzy() {
@@ -38,7 +38,7 @@ class Yatzy {
     }
 
     sumDiceWithValue(n) {
-        return this.dice.filter(die => die === n).reduce((a, b) => a + b, 0);
+        return _.sum(this.dice.filter(die => die === n));
     }
 
     pair() {
