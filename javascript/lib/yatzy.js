@@ -4,7 +4,7 @@ const Yatzy = function (d1, d2, d3, d4, d5) {
     this.fours = function () {
         let sum;
         sum = 0;
-        for (at = 0; at !== 5; at += 1) {
+        for (let at = 0; at !== 5; at += 1) {
             if (this.dice[at] === 4) {
                 sum += 4;
             }
@@ -13,14 +13,14 @@ const Yatzy = function (d1, d2, d3, d4, d5) {
     };
 
     this.fives = function () {
-        s = 0;
+        let s = 0;
         let i;
         for (i = 0; i < this.dice.length; i += 1) if (this.dice[i] === 5) s += 5;
         return s;
     };
 
     this.sixes = function () {
-        sum = 0;
+        let sum = 0;
         for (let at = 0; at < this.dice.length; at += 1) if (this.dice[at] === 6) sum += 6;
         return sum;
     };
@@ -100,7 +100,7 @@ Yatzy.two_pair = function (d1, d2, d3, d4, d5) {
     counts[d5 - 1] = counts[d5 - 1] + 1;
     let n = 0;
     let score = 0;
-    for (i = 0; i < 6; i += 1) {
+    for (let i = 0; i < 6; i += 1) {
         if (counts[6 - i - 1] >= 2) {
             n += 1;
             score += (6 - i);
@@ -118,7 +118,7 @@ Yatzy.four_of_a_kind = function (_1, _2, d3, d4, d5) {
     tallies[d3 - 1] = tallies[d3 - 1] + 1;
     tallies[d4 - 1] = tallies[d4 - 1] + 1;
     tallies[d5 - 1] = tallies[d5 - 1] + 1;
-    for (i = 0; i < 6; i += 1) if (tallies[i] >= 4) return (i + 1) * 4;
+    for (let i = 0; i < 6; i += 1) if (tallies[i] >= 4) return (i + 1) * 4;
     return 0;
 };
 
@@ -130,7 +130,7 @@ Yatzy.three_of_a_kind = function (d1, d2, d3, d4, d5) {
     t[d3 - 1] = t[d3 - 1] + 1;
     t[d4 - 1] = t[d4 - 1] + 1;
     t[d5 - 1] = t[d5 - 1] + 1;
-    for (i = 0; i < 6; i += 1) if (t[i] >= 3) return (i + 1) * 3;
+    for (let i = 0; i < 6; i += 1) if (t[i] >= 3) return (i + 1) * 3;
     return 0;
 };
 
