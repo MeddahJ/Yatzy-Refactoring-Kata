@@ -39,11 +39,11 @@ Yatzy.chance = function (d1, d2, d3, d4, d5) {
 
 Yatzy.yatzy = function () {
     const counts = [0, 0, 0, 0, 0, 0, 0, 0];
-    for (var i = 0; i !== arguments.length; i += 1) {
+    for (let i = 0; i !== arguments.length; i += 1) {
         const die = arguments[i];
         counts[die - 1] = counts[die - 1] + 1;
     }
-    for (i = 0; i !== 6; i += 1) if (counts[i] === 5) return 50;
+    for (let i = 0; i !== 6; i += 1) if (counts[i] === 5) return 50;
     return 0;
 };
 
