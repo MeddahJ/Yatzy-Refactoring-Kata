@@ -1,3 +1,6 @@
+/* eslint-disable prefer-arrow-callback */
+/* eslint-disable func-names */
+
 var assert = require("assert");
 var Yatzy = require("../lib/yatzy");
 
