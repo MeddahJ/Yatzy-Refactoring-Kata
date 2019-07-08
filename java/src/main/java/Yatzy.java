@@ -92,6 +92,8 @@ public class Yatzy {
         return sumOfTriple == 0 || sumOfPair == 0 ? 0 : sumOfPair + sumOfTriple;
     }
 
+    /* Finds the highest dice value present n times, and returns its value multiplied by n.
+     * Dice array has to be provided so this method can be called multiple times of the same dice roll */
     private int sumDiceOccurring(int occurrences, int... dice) {
         return HashMultiset.create(asList(dice))
                 .entrySet()
