@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "Code for a refactoring exercise about the game of Yatzy",
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "mnemonist": "^0.29.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",

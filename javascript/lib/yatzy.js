@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const MultiSet = require('mnemonist/multi-set');
 
 class Yatzy {
     constructor(d1, d2, d3, d4, d5) {
