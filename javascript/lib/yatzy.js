@@ -43,37 +43,25 @@ class Yatzy {
     }
 
     pair() {
-        const counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-        counts[this.dice[0] - 1] = counts[this.dice[0] - 1] + 1;
-        counts[this.dice[1] - 1] = counts[this.dice[1] - 1] + 1;
-        counts[this.dice[2] - 1] = counts[this.dice[2] - 1] + 1;
-        counts[this.dice[3] - 1] = counts[this.dice[3] - 1] + 1;
-        counts[this.dice[4] - 1] = counts[this.dice[4] - 1] + 1;
-        let at;
-        for (at = 0; at !== 6; at += 1) if (counts[6 - at - 1] >= 2) return (6 - at) * 2;
-        return 0;
+        return Yatzy.sumDiceOccurring(2, this.dice);
     }
 
     threeOfAKind() {
-        const t = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-        t[this.dice[0] - 1] = t[this.dice[0] - 1] + 1;
-        t[this.dice[1] - 1] = t[this.dice[1] - 1] + 1;
-        t[this.dice[2] - 1] = t[this.dice[2] - 1] + 1;
-        t[this.dice[3] - 1] = t[this.dice[3] - 1] + 1;
-        t[this.dice[4] - 1] = t[this.dice[4] - 1] + 1;
-        for (let i = 0; i < 6; i += 1) if (t[i] >= 3) return (i + 1) * 3;
-        return 0;
+        return Yatzy.sumDiceOccurring(3, this.dice);
     }
 
     fourOfAKind() {
-        const tallies = [0, 0, 0, 0, 0, 0, 0, 0];
-        tallies[this.dice[0] - 1] = tallies[this.dice[0] - 1] + 1;
-        tallies[this.dice[1] - 1] = tallies[this.dice[1] - 1] + 1;
-        tallies[this.dice[2] - 1] = tallies[this.dice[2] - 1] + 1;
-        tallies[this.dice[3] - 1] = tallies[this.dice[3] - 1] + 1;
-        tallies[this.dice[4] - 1] = tallies[this.dice[4] - 1] + 1;
-        for (let i = 0; i < 6; i += 1) if (tallies[i] >= 4) return (i + 1) * 4;
-        return 0;
+        return Yatzy.sumDiceOccurring(4, this.dice);
+    }
+
+    static sumDiceOccurring(n, dice) {
+        const potentialTuples = Array.from(MultiSet.from(dice).multiplicities())
+            .filter(([, count]) => count >= n)
+            .map(([value]) => value)
+            .sort()
+            .reverse(); // Highest tuple value first
+
+        return potentialTuples.length >= 1 ? potentialTuples[0] * n : 0;
     }
 
     twoPairs() {
