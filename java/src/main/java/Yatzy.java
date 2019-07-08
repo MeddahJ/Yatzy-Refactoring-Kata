@@ -60,18 +60,18 @@ public class Yatzy {
     }
 
     public int pair() {
-        return sumDiceOccurring(2);
+        return sumDiceOccurring(2, dice);
     }
 
     public int threeOfAKind() {
-        return sumDiceOccurring(3);
+        return sumDiceOccurring(3, dice);
     }
 
     public int fourOfAKind() {
-        return sumDiceOccurring(4);
+        return sumDiceOccurring(4, dice);
     }
 
-    private int sumDiceOccurring(int occurrences) {
+    private int sumDiceOccurring(int occurrences, int... dice) {
         return HashMultiset.create(asList(dice))
                 .entrySet()
                 .stream()
