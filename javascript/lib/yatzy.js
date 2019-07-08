@@ -4,8 +4,8 @@ const Yatzy = function (d1, d2, d3, d4, d5) {
     this.fours = function () {
         let sum;
         sum = 0;
-        for (at = 0; at != 5; at++) {
-            if (this.dice[at] == 4) {
+        for (at = 0; at !== 5; at++) {
+            if (this.dice[at] === 4) {
                 sum += 4;
             }
         }
@@ -15,13 +15,13 @@ const Yatzy = function (d1, d2, d3, d4, d5) {
     this.fives = function () {
         s = 0;
         let i;
-        for (i = 0; i < this.dice.length; i++) if (this.dice[i] == 5) s += 5;
+        for (i = 0; i < this.dice.length; i++) if (this.dice[i] === 5) s += 5;
         return s;
     };
 
     this.sixes = function () {
         sum = 0;
-        for (let at = 0; at < this.dice.length; at++) if (this.dice[at] == 6) sum += 6;
+        for (let at = 0; at < this.dice.length; at++) if (this.dice[at] === 6) sum += 6;
         return sum;
     };
 };
@@ -39,43 +39,43 @@ Yatzy.chance = function (d1, d2, d3, d4, d5) {
 
 Yatzy.yatzy = function () {
     const counts = [0, 0, 0, 0, 0, 0, 0, 0];
-    for (var i = 0; i != arguments.length; ++i) {
+    for (var i = 0; i !== arguments.length; ++i) {
         const die = arguments[i];
         counts[die - 1]++;
     }
-    for (i = 0; i != 6; i++) if (counts[i] == 5) return 50;
+    for (i = 0; i !== 6; i++) if (counts[i] === 5) return 50;
     return 0;
 };
 
 Yatzy.ones = function (d1, d2, d3, d4, d5) {
     let sum = 0;
-    if (d1 == 1) sum++;
-    if (d2 == 1) sum++;
-    if (d3 == 1) sum++;
-    if (d4 == 1) sum++;
-    if (d5 == 1) sum++;
+    if (d1 === 1) sum++;
+    if (d2 === 1) sum++;
+    if (d3 === 1) sum++;
+    if (d4 === 1) sum++;
+    if (d5 === 1) sum++;
 
     return sum;
 };
 
 Yatzy.twos = function (d1, d2, d3, d4, d5) {
     let sum = 0;
-    if (d1 == 2) sum += 2;
-    if (d2 == 2) sum += 2;
-    if (d3 == 2) sum += 2;
-    if (d4 == 2) sum += 2;
-    if (d5 == 2) sum += 2;
+    if (d1 === 2) sum += 2;
+    if (d2 === 2) sum += 2;
+    if (d3 === 2) sum += 2;
+    if (d4 === 2) sum += 2;
+    if (d5 === 2) sum += 2;
     return sum;
 };
 
 Yatzy.threes = function (d1, d2, d3, d4, d5) {
     let s;
     s = 0;
-    if (d1 == 3) s += 3;
-    if (d2 == 3) s += 3;
-    if (d3 == 3) s += 3;
-    if (d4 == 3) s += 3;
-    if (d5 == 3) s += 3;
+    if (d1 === 3) s += 3;
+    if (d2 === 3) s += 3;
+    if (d3 === 3) s += 3;
+    if (d4 === 3) s += 3;
+    if (d5 === 3) s += 3;
     return s;
 };
 
@@ -87,7 +87,7 @@ Yatzy.score_pair = function (d1, d2, d3, d4, d5) {
     counts[d4 - 1]++;
     counts[d5 - 1]++;
     let at;
-    for (at = 0; at != 6; at++) if (counts[6 - at - 1] >= 2) return (6 - at) * 2;
+    for (at = 0; at !== 6; at++) if (counts[6 - at - 1] >= 2) return (6 - at) * 2;
     return 0;
 };
 
@@ -106,7 +106,7 @@ Yatzy.two_pair = function (d1, d2, d3, d4, d5) {
             score += (6 - i);
         }
     }
-    if (n == 2) return score * 2;
+    if (n === 2) return score * 2;
     return 0;
 };
 
@@ -142,11 +142,11 @@ Yatzy.smallStraight = function (d1, d2, d3, d4, d5) {
     tallies[d3 - 1] += 1;
     tallies[d4 - 1] += 1;
     tallies[d5 - 1] += 1;
-    if (tallies[0] == 1
-        && tallies[1] == 1
-        && tallies[2] == 1
-        && tallies[3] == 1
-        && tallies[4] == 1) return 15;
+    if (tallies[0] === 1
+        && tallies[1] === 1
+        && tallies[2] === 1
+        && tallies[3] === 1
+        && tallies[4] === 1) return 15;
     return 0;
 };
 
@@ -158,11 +158,11 @@ Yatzy.largeStraight = function (d1, d2, d3, d4, d5) {
     tallies[d3 - 1] += 1;
     tallies[d4 - 1] += 1;
     tallies[d5 - 1] += 1;
-    if (tallies[1] == 1
-        && tallies[2] == 1
-        && tallies[3] == 1
-        && tallies[4] == 1
-        && tallies[5] == 1) return 20;
+    if (tallies[1] === 1
+        && tallies[2] === 1
+        && tallies[3] === 1
+        && tallies[4] === 1
+        && tallies[5] === 1) return 20;
     return 0;
 };
 
@@ -182,15 +182,15 @@ Yatzy.fullHouse = function (d1, d2, d3, d4, d5) {
     tallies[d4 - 1] += 1;
     tallies[d5 - 1] += 1;
 
-    for (i = 0; i != 6; i += 1) {
-        if (tallies[i] == 2) {
+    for (i = 0; i !== 6; i += 1) {
+        if (tallies[i] === 2) {
             _2 = true;
             _2_at = i + 1;
         }
     }
 
-    for (i = 0; i != 6; i += 1) {
-        if (tallies[i] == 3) {
+    for (i = 0; i !== 6; i += 1) {
+        if (tallies[i] === 3) {
             _3 = true;
             _3_at = i + 1;
         }
